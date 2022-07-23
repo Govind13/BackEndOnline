@@ -12,6 +12,7 @@ import java.util.List;
 @Slf4j
 @RestController
 @RequestMapping("/plant")
+@CrossOrigin("http://localhost:3000")
 public class PlantController {
     @Autowired
     private PlantServiceImpl plantServiceimpl;
@@ -36,8 +37,8 @@ public class PlantController {
     public Plant updatePlant(@RequestBody Plant plant){
         return plantServiceimpl.updatePlant(plant);
     }
-    @DeleteMapping("/delete")
-    public void removePlant(@RequestParam Long plantId){
+    @DeleteMapping("/delete/{plantId}")
+    public void removePlant(@PathVariable Long plantId){
         plantServiceimpl.deletePlant(plantId);
     }
     @GetMapping("/viewByCommonName")

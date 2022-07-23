@@ -13,7 +13,7 @@ public interface SeedService {
 
     Seed viewSeed(Long seedId);
 
-    List<Seed> viewPlant(String commonName);
+    List<Seed> viewSeed(String commonName);
 
     List<Seed> viewAllSeeds();
 

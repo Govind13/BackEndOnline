@@ -11,6 +11,7 @@ import java.util.List;
 
 @RestController
 @RequestMapping("/planter")
+@CrossOrigin("http://localhost:3000")
 public class PlanterController {
 
     @Autowired

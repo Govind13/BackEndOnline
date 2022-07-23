@@ -12,6 +12,7 @@ import java.util.List;
 @Slf4j
 @RestController
 @RequestMapping("/seed")
+@CrossOrigin("http://localhost:3000")
 public class SeedController {
     @Autowired
     private SeedServiceImpl seedServiceimpl;
@@ -33,11 +34,11 @@ public class SeedController {
         return seedServiceimpl.viewAllSeeds();
     }
     @PutMapping("/update")
-    public Seed updatePlant(@RequestBody Seed seed){
+    public Seed updateSeed(@RequestBody Seed seed){
         return seedServiceimpl.updateSeed(seed);
     }
-    @DeleteMapping("/delete")
-    public void removePlant(@RequestParam Long seedId){
+    @DeleteMapping("/delete/{seedId}")
+    public void removeSeed(@PathVariable Long seedId){
         seedServiceimpl.deleteSeed(seedId);
     }
     @GetMapping("/viewByCommonName")

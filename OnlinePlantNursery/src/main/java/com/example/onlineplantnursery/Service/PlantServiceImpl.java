@@ -27,8 +27,8 @@ public class PlantServiceImpl implements PlantService{
     }
 
     @Override
-    public void deletePlant(Long PlantId) {
-        plantRepository.deleteById(PlantId);
+    public void deletePlant(Long plantId) {
+        plantRepository.deleteById(plantId);
     }
 
     @Override

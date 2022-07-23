@@ -13,6 +13,7 @@ import org.springframework.web.bind.annotation.*;
 @Slf4j
 @RestController
 @RequestMapping("Order")
+@CrossOrigin("http://localhost:3000")
 
 public class OrderController {
 //    @Qualifier("orderService")

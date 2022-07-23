@@ -1,4 +1,5 @@
 package com.example.onlineplantnursery.Controller;
+import com.example.onlineplantnursery.Entity.Plant;
 import com.example.onlineplantnursery.Entity.Seed;
 import com.example.onlineplantnursery.Service.SeedServiceImpl;
 import lombok.extern.slf4j.Slf4j;
@@ -34,9 +35,8 @@ public class SeedController {
         return seedServiceimpl.viewAllSeeds();
     }
     @PutMapping("/update")
-    public Seed updateSeed(@RequestBody Seed seed){
-        return seedServiceimpl.updateSeed(seed);
-    }
+    public void modifyplant(@RequestParam(value="id")Long id1, @RequestBody Seed seed) {
+        seedServiceimpl.updateSeed(id1,seed);}
     @DeleteMapping("/delete/{seedId}")
     public void removeSeed(@PathVariable Long seedId){
         seedServiceimpl.deleteSeed(seedId);

@@ -7,7 +7,7 @@ import java.util.List;
 public interface PlantService {
     Plant addPlant(Plant plant);
 
-    Plant updatePlant(Plant plant);
+    void updatePlant(Long id, Plant plant);
 
     void deletePlant(Long plantId);
 

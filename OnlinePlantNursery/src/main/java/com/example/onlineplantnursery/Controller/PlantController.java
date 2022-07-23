@@ -34,9 +34,8 @@ public class PlantController {
         return plantServiceimpl.viewAllPlants();
     }
     @PutMapping("/update")
-    public Plant updatePlant(@RequestBody Plant plant){
-        return plantServiceimpl.updatePlant(plant);
-    }
+    public void modifyplant(@RequestParam(value="id")Long id1, @RequestBody Plant plant) {
+        plantServiceimpl.updatePlant(id1,plant);}
     @DeleteMapping("/delete/{plantId}")
     public void removePlant(@PathVariable Long plantId){
         plantServiceimpl.deletePlant(plantId);

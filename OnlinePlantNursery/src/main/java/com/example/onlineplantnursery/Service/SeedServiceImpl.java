@@ -1,7 +1,7 @@
 package com.example.onlineplantnursery.Service;
-
-import com.example.onlineplantnursery.Entity.Plant;
 import com.example.onlineplantnursery.Entity.Seed;
+import com.example.onlineplantnursery.Exception.NoSuchSeedExistsException;
+import com.example.onlineplantnursery.Exception.SeedAldredyExistsException;
 import com.example.onlineplantnursery.Repository.SeedRepository;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -19,8 +19,11 @@ public class SeedServiceImpl implements SeedService {
     SeedRepository seedRepository;
     @Override
     public Seed addSeed(Seed seed) {
-        seedRepository.save(seed);
-        return seed;
+        Optional<Seed> plant1 = seedRepository.findById(seed.getPlantId());
+        if(plant1.isPresent()) {
+            throw new SeedAldredyExistsException("Customer already exists!!");
+        }
+        return seedRepository.save(seed);
     }
 
     @Override
@@ -30,7 +33,9 @@ public class SeedServiceImpl implements SeedService {
 
     @Override
     public Seed viewSeed(Long seedId) {
-        return seedRepository.findById(seedId).get();
+
+        return seedRepository.findById(seedId)
+                .orElseThrow(()->new NoSuchSeedExistsException("No Plant is Present With Id ="+seedId));
     }
 
     @Override

@@ -1,5 +1,4 @@
 package com.example.onlineplantnursery.Controller;
-import com.example.onlineplantnursery.Entity.Plant;
 import com.example.onlineplantnursery.Entity.Seed;
 import com.example.onlineplantnursery.Service.SeedServiceImpl;
 import lombok.extern.slf4j.Slf4j;
@@ -9,6 +8,7 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
+import java.util.Optional;
 
 @Slf4j
 @RestController
